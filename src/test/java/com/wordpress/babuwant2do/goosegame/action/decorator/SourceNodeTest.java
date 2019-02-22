@@ -32,9 +32,10 @@ public class SourceNodeTest {
 		Integer exp_nextLocation = 10;
 		String exp_userName = "Pippo";
 		String responseFormate = "%s rolls %d, %d. %s moves from %s to %d";
+		
 		String exp_response = String.format(responseFormate,
 				exp_userName, exp_dice1, exp_dice2, exp_userName,
-				( exp_position == 1 ? "Start": exp_position), exp_nextLocation);
+				( exp_position == 0 ? "Start": exp_position), exp_nextLocation);
 
 		//dependency
 		User user = new User(exp_userName);
@@ -43,9 +44,11 @@ public class SourceNodeTest {
 		
 		//TO Test
 		SourceNode node = new SourceNode(location, move, user);
-		assertEquals( exp_response,node.getResponds(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_position, exp_userName, exp_dice1, exp_dice2));
+		assertEquals( exp_response,node.getResponds(), "response test for");
 		
 	}
+	
+
 	
 	/**
 	 * 

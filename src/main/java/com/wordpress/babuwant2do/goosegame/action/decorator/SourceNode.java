@@ -71,7 +71,7 @@ public class SourceNode implements NodeI{
 		StringBuilder sb = new StringBuilder(String.format("%s rolls %s. %s moves from %s to %s", 
 				this.getUser().getName(), this.move.getState(),
 				this.getUser().getName(), 
-				this.getLocation().getPosition()==1? this.getLocation().getName():this.getLocation().getPosition(),
+				this.getLocation().getPosition()== 0? this.getLocation().getName():this.getLocation().getPosition(),
 				destinationAddress));
 //		int overFlowStrps = this.getStepsOverFlow();
 //		if(overFlowStrps > 0){

@@ -7,7 +7,7 @@ public class Location implements BoardLocationI{
 	
 	public Location(Integer position){
 		this.position = position;
-		this.name = (position ==1? "Start" : position.toString());
+		this.name = (position == 0? "Start" : position.toString());
 		this.nextPosition = position;
 	}
 	public Location(Integer position , String name){
