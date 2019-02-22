@@ -33,9 +33,10 @@ public class GoesNodeDecorator extends NodeDecorator{
 	@Override
 	public String getResponds(String destinationAddress) {
 		StringBuilder sb = new StringBuilder(this.getPrevoiusNode().getResponds(destinationAddress)).append(". Pippo moves again and goes to ").append(this.getNextStop());
-		if(this.getStepsOverFlow() > 0){
-			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
-		}
+//		if(this.getStepsOverFlow() > 0){
+//			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
+//		}
+		sb.append(this.getPostfix());
 		return sb.toString();
 	}
 

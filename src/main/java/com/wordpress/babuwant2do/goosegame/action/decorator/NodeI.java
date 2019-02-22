@@ -34,4 +34,19 @@ public interface NodeI {
 		return this.calculateNewPssiblePosition() - App.MAX_LOCATION;
 	}
 	
+	/**
+	 * prepare postfix for response. it generate postfix if step is Finish(win) or Over the Finish (overflow).
+	 * Note: this part suppose to add at the end of Node response. 
+	 * @return
+	 */
+	public default String getPostfix() {
+		int overFlowStrps = this.getStepsOverFlow();
+		if(overFlowStrps > 0){
+			return String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination());
+		}else if(overFlowStrps == 0){
+			return String.format(". %s Wins!!",  this.getUser().getName());
+		}
+		return "";		
+	}
+	
 }

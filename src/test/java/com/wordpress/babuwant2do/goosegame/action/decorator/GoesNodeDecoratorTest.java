@@ -111,8 +111,6 @@ public class GoesNodeDecoratorTest {
 	private static Stream<Arguments> taskTotalUnitProvider() {
 		
 		List<Arguments> list = new ArrayList<Arguments>();
-		//[1]user, [2]SrcPosition, [3]dice1, [4]dice2, [5]bounds,[ [6]destination, [7]nextStop ] [8] jump_location
-		
 		
 		// [1]user, [2]SrcPosition, [3]dice1, [4]dice2, [5]dest_pos,
 		// [6]Exp_nextStop ] [7] exp_bounds [8] exp_destination
@@ -120,6 +118,7 @@ public class GoesNodeDecoratorTest {
 		list.add(createArg("Pippo", 1, 2, 3, 6, 11, -52, 11)); // test normal
 		list.add(createArg("Pippo", 3, 1, 1, 5, 7, -56, 7)); // test normal
 		list.add(createArg("Pippo", 55, 2, 3, 60, 63, 2, 61)); // test normal
+		list.add(createArg("Pippo", 57, 2, 1, 60, 63, 0, 63)); // test normal
 //		list.add(createArg("Pippo", 4, 1, 1, 6, 12, 0, 12)); // test normal
 //		list.add(createArg("Pippo", 5, 2, 3, 0, 10, 10)); // test normal
 //		list.add(createArg("Pippo", 60, 3, 2, 0, 61, 61)); // test bounds

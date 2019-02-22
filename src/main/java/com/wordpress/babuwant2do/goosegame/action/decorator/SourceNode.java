@@ -73,9 +73,13 @@ public class SourceNode implements NodeI{
 				this.getUser().getName(), 
 				this.getLocation().getPosition()==1? this.getLocation().getName():this.getLocation().getPosition(),
 				destinationAddress));
-		if(this.getStepsOverFlow() > 0){
-			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
-		}
+//		int overFlowStrps = this.getStepsOverFlow();
+//		if(overFlowStrps > 0){
+//			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
+//		}else if(overFlowStrps == 0){
+//			sb.append(String.format(". %s Wins!!",  this.getUser().getName()));
+//		}
+		sb.append(this.getPostfix());
 		return sb.toString();		
 	}
 
