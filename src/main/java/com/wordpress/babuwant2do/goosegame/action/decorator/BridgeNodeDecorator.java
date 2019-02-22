@@ -12,6 +12,7 @@ public class BridgeNodeDecorator extends NodeDecorator{
 		return this.getResponds(this.getLocation().getName());
 	}
 	
+	@Override
 	public Integer getDestination() {
 		return this.getLocation().getNextPosition();
 	}
@@ -19,17 +20,25 @@ public class BridgeNodeDecorator extends NodeDecorator{
 	@Override
 	public String getResponds(String destinationAddress) {
 		StringBuilder sb = new StringBuilder(this.getPrevoiusNode().getResponds(destinationAddress)).append(". Pippo jumps to ").append(this.getLocation().getNextPosition());
+		if(this.getStepsOverFlow() > 0){
+			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
+		}
 		return sb.toString();
 	}
 
 	@Override
-	public Integer getBounds() {
-		return 0;
+	public Integer calculateNewPssiblePosition() {
+		return this.getLocation().getNextPosition();
 	}
 
-	@Override
-	public Integer getNextStop() {
-		return this.getDestination();
-	}
+//
+//	@Override
+//	public Integer getStepsOverFlow() {
+//		return this.getLocation().getNextPosition() - App.MAX_LOCATION;
+//	}
+//	@Override
+//	public Integer getNextStop() {
+//		return this.getDestination();
+//	}
 
 }

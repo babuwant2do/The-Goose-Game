@@ -16,13 +16,6 @@ public abstract class NodeDecorator implements NodeI{
 	protected NodeI getPrevoiusNode(){
 		return this.sourceNode;
 	}
-	
-	/**
-	 * get Current Board Location (without any action on this node)
-	 */
-	public Location getLocation() {
-		return currentLocation;
-	}
 
 	/**
 	 * get previous board Location
@@ -40,12 +33,25 @@ public abstract class NodeDecorator implements NodeI{
 		return this.currentLocation.getPosition();
 	}
 	
+	protected Integer getNextStop() {
+		return this.getDestination();
+	}
+	
+	
+	/**
+	 * get Current Board Location (without any action on this node)
+	 */
+	@Override
+	public Location getLocation() {
+		return currentLocation;
+	}
+	
+	@Override
 	public User getUser() {
 		return this.sourceNode.getUser();
 	}
-	
+	@Override
 	public Move getMove() {
 		return this.sourceNode.getMove();
 	}
-	
 }

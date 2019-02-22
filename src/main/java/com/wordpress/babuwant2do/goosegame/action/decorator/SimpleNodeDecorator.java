@@ -1,6 +1,5 @@
 package com.wordpress.babuwant2do.goosegame.action.decorator;
 
-import com.wordpress.babuwant2do.goosegame.App;
 import com.wordpress.babuwant2do.goosegame.board.Location;
 
 public class SimpleNodeDecorator extends NodeDecorator{
@@ -9,19 +8,14 @@ public class SimpleNodeDecorator extends NodeDecorator{
 		super(sourceNode, currentLocation);
 	}
 
+	@Override
 	public String getResponds() {
 		return this.getPrevoiusNode().getResponds();
 	}
-	
 
 	@Override
 	public String getResponds(String destinationAddress) {
 		return this.getPrevoiusNode().getResponds(destinationAddress);
-	}
-
-	@Override
-	public Integer getBounds() {
-		return this.getPosition() - App.MAX_LOCATION;
 	}
 
 	@Override
@@ -30,7 +24,17 @@ public class SimpleNodeDecorator extends NodeDecorator{
 	}
 
 	@Override
-	public Integer getNextStop() {
+	public Integer calculateNewPssiblePosition() {
 		return this.getPosition();
 	}
+
+//	@Override
+//	public Integer getStepsOverFlow() {
+//		return this.getPosition() - App.MAX_LOCATION;
+//	}
+	
+//	@Override
+//	public Integer getNextStop() {
+//		return this.getPosition();
+//	}
 }

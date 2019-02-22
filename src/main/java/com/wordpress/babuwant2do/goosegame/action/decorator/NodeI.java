@@ -1,33 +1,37 @@
 package com.wordpress.babuwant2do.goosegame.action.decorator;
 
+import com.wordpress.babuwant2do.goosegame.App;
 import com.wordpress.babuwant2do.goosegame.board.Location;
 import com.wordpress.babuwant2do.goosegame.game.Move;
 import com.wordpress.babuwant2do.goosegame.game.User;
 
 public interface NodeI {
-	public String getResponds();
-	public String getResponds(String destinationAddress);
 	public Move getMove();
 	public User getUser();
 	public Location getLocation();
 
-	//TODO: rename it getMoveOverFlow and make it Private or Protected
-	/**
-	 * if bound = 0 : wins, if -ve : normal move, if +ve: bounds
-	 * @return
-	 */
-	public Integer getBounds();
 	/**
 	 * get final destination after even bounds.. and all action made
 	 * @return
 	 */
 	public Integer getDestination();
+	
+	public String getResponds();
+	public String getResponds(String destinationAddress);
 	/**
-	 * it can be the same as destination , but in case of bounds it is always end(63).
+	 * JUst calculate the next Position(valid/invalid) after impose All action on current position.
+	 * it provides the new Position even After the END, including overflow.
 	 * @return
 	 */
-	public Integer getNextStop();
+	public Integer calculateNewPssiblePosition();
 
 	
+	/**
+	 * count the steps over/before the final/END. Number represent the Steps Behind/After w.r.t END.
+	 * @return - 0 if reach at END(win), -ve if behind the END, +ve if steps overflow.
+	 */
+	public default Integer getStepsOverFlow() {
+		return this.calculateNewPssiblePosition() - App.MAX_LOCATION;
+	}
 	
 }

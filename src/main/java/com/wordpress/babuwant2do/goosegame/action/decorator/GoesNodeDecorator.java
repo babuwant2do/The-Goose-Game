@@ -14,12 +14,10 @@ public class GoesNodeDecorator extends NodeDecorator{
 		super(sourceNode, currentLocation);
 	}
 
-	public String getResponds() {
-		return this.getResponds(String.format("%d, %s", this.getPosition(), this.getLocation().getName()));
-	}
 
+	@Override
 	public Integer getDestination() {
-		int bounds = this.getBounds();
+		int bounds = this.getStepsOverFlow();
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
@@ -28,24 +26,38 @@ public class GoesNodeDecorator extends NodeDecorator{
 	}
 
 	@Override
+	public String getResponds() {
+		return this.getResponds(String.format("%d, %s", this.getPosition(), this.getLocation().getName()));
+	}
+
+	@Override
 	public String getResponds(String destinationAddress) {
 		StringBuilder sb = new StringBuilder(this.getPrevoiusNode().getResponds(destinationAddress)).append(". Pippo moves again and goes to ").append(this.getNextStop());
+		if(this.getStepsOverFlow() > 0){
+			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
+		}
 		return sb.toString();
 	}
 
-	@Override
-	public Integer getBounds() {
-		int newPosition = this.getPosition() + this.getMove().getTotalStep();
-		return newPosition - App.MAX_LOCATION;
-	}
+//	@Override
+//	public Integer getStepsOverFlow() {
+//		int newPosition = this.getPosition() + this.getMove().getTotalStep();
+//		return newPosition - App.MAX_LOCATION;
+//	}
 
 	@Override
 	public Integer getNextStop() {
-		int bounds = this.getBounds();
+		int bounds = this.getStepsOverFlow();
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
 			return App.MAX_LOCATION;
 		}
+	}
+
+
+	@Override
+	public Integer calculateNewPssiblePosition() {
+		return this.getPosition() + this.getMove().getTotalStep();
 	}
 }

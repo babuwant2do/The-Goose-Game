@@ -16,35 +16,37 @@ public class SourceNode implements NodeI{
 		this.user = user;
 	}
 	
+	@Override
 	public Move getMove() {
 		return move;
 	}
 	public void setMove(Move move) {
 		this.move = move;
 	}
+	
+	@Override
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
 	/**
 	 * get Location Node
 	 */
+	@Override
 	public Location getLocation() {
 		return location;
 	}
+	
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-
-	public Integer getBounds(){
-		int newPosition = this.getPosition() + this.getMove().getTotalStep();
-		return newPosition - App.MAX_LOCATION;
-	}
 	
+	@Override
 	public Integer getDestination() {
-		int bounds = this.getBounds();
+		int bounds = this.getStepsOverFlow();
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
@@ -53,8 +55,9 @@ public class SourceNode implements NodeI{
 		}
 	}
 	
-	public Integer getNextStop() {
-		int bounds = this.getBounds();
+	//TODO: make it private and test using Java Reflection
+	protected Integer getNextStop() {
+		int bounds = this.getStepsOverFlow();
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
@@ -65,12 +68,15 @@ public class SourceNode implements NodeI{
 
 	@Override
 	public String getResponds(String destinationAddress) {
-		return String.format("%s rolls %s. %s moves from %s to %s", 
+		StringBuilder sb = new StringBuilder(String.format("%s rolls %s. %s moves from %s to %s", 
 				this.getUser().getName(), this.move.getState(),
 				this.getUser().getName(), 
 				this.getLocation().getPosition()==1? this.getLocation().getName():this.getLocation().getPosition(),
-				destinationAddress);
-		//TODO: append if bounds... also for others , speially goose 
+				destinationAddress));
+		if(this.getStepsOverFlow() > 0){
+			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
+		}
+		return sb.toString();		
 	}
 
 	@Override
@@ -78,8 +84,17 @@ public class SourceNode implements NodeI{
 		return this.getResponds(this.getNextStop().toString());
 	}
 
+	/**
+	 * get current node position in the board.
+	 * @return
+	 */
 	private Integer getPosition() {
 		return this.getLocation().getPosition();
+	}
+
+	@Override
+	public Integer calculateNewPssiblePosition() {
+		return this.getPosition() + this.getMove().getTotalStep();
 	}
 	
 }

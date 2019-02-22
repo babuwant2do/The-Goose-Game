@@ -44,8 +44,8 @@ public class BridgeNodeDecoratorTest {
 		assertEquals( exp_currentPosition,node.getPosition(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getLocation().getPosition()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
 		
 		// bounds
-		assertNotNull(node.getBounds(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getUser().getName()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
-		assertEquals( exp_bounds,node.getBounds(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
+		assertNotNull(node.getStepsOverFlow(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getUser().getName()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
+		assertEquals( exp_bounds,node.getStepsOverFlow(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
 		
 		//Destination : next Node 
 		assertNotNull(node.getDestination(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getUser().getName()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
@@ -123,8 +123,8 @@ public class BridgeNodeDecoratorTest {
 		// [1]user, [2]SrcPosition, [3]dice1, [4]dice2, [5]dest_pos,[ [6]JumpLocation, 
 		// [7]Exp_nextStop ] [8] exp_bounds [9] exp_destination
 				
-		list.add(createArg("Pippo", 1, 2, 3, 6, 10, 10, 0, 10)); // test normal
-		list.add(createArg("Pippo", 4, 1, 1, 6, 12, 12, 0, 12)); // test normal
+		list.add(createArg("Pippo", 1, 2, 3, 6, 10, 10, -53, 10)); // test normal
+		list.add(createArg("Pippo", 4, 1, 1, 6, 12, 12, -51, 12)); // test normal
 //		list.add(createArg("Pippo", 5, 2, 3, 0, 10, 10)); // test normal
 //		list.add(createArg("Pippo", 60, 3, 2, 0, 61, 61)); // test bounds
 //		list.add(createArg("Pippo", 60, 1, 2, 0, 63, 63)); // test wins
