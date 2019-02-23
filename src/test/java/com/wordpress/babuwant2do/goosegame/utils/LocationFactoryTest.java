@@ -1,4 +1,4 @@
-package com.wordpress.babuwant2do.goosegame.factory;
+package com.wordpress.babuwant2do.goosegame.utils;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 import com.wordpress.babuwant2do.goosegame.board.BridgeLocation;
 import com.wordpress.babuwant2do.goosegame.board.GooseLocation;
 import com.wordpress.babuwant2do.goosegame.board.Location;
-import com.wordpress.babuwant2do.goosegame.builder.LocationType;
 import com.wordpress.babuwant2do.goosegame.exceptions.LocationCreateFailException;
+import com.wordpress.babuwant2do.goosegame.utils.LocationFactory;
 
 public class LocationFactoryTest {
 	

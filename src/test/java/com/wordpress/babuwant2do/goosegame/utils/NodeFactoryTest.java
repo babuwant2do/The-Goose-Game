@@ -1,4 +1,4 @@
-package com.wordpress.babuwant2do.goosegame.factory;
+package com.wordpress.babuwant2do.goosegame.utils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,6 +22,7 @@ import com.wordpress.babuwant2do.goosegame.board.Location;
 import com.wordpress.babuwant2do.goosegame.exceptions.NodeCreateFailException;
 import com.wordpress.babuwant2do.goosegame.game.Move;
 import com.wordpress.babuwant2do.goosegame.game.User;
+import com.wordpress.babuwant2do.goosegame.utils.NodeFactory;
 
 public class NodeFactoryTest {
 	static NodeFactory nodeFactory = null;

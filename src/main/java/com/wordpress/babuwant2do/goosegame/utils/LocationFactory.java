@@ -1,9 +1,8 @@
-package com.wordpress.babuwant2do.goosegame.factory;
+package com.wordpress.babuwant2do.goosegame.utils;
 
 import com.wordpress.babuwant2do.goosegame.board.BridgeLocation;
 import com.wordpress.babuwant2do.goosegame.board.GooseLocation;
 import com.wordpress.babuwant2do.goosegame.board.Location;
-import com.wordpress.babuwant2do.goosegame.builder.LocationType;
 import com.wordpress.babuwant2do.goosegame.exceptions.LocationCreateFailException;
 
 public class LocationFactory {

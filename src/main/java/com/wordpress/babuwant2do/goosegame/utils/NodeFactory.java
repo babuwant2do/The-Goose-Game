@@ -1,4 +1,4 @@
-package com.wordpress.babuwant2do.goosegame.factory;
+package com.wordpress.babuwant2do.goosegame.utils;
 
 import com.wordpress.babuwant2do.goosegame.action.decorator.BridgeNodeDecorator;
 import com.wordpress.babuwant2do.goosegame.action.decorator.GooseNodeDecorator;
