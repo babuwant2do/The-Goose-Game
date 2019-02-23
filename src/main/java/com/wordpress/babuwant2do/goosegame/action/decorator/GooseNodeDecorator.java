@@ -3,14 +3,14 @@ package com.wordpress.babuwant2do.goosegame.action.decorator;
 import com.wordpress.babuwant2do.goosegame.App;
 import com.wordpress.babuwant2do.goosegame.board.Location;
 
-public class GoesNodeDecorator extends NodeDecorator{
+public class GooseNodeDecorator extends NodeDecorator{
 
 	/**
 	 * 
 	 * @param sourceNode TODO: need to change NodeI to GooesNode to make sure that only gooes can inset
 	 * @param currentLocation
 	 */
-	public GoesNodeDecorator(NodeI sourceNode, Location currentLocation) {
+	public GooseNodeDecorator(NodeI sourceNode, Location currentLocation) {
 		super(sourceNode, currentLocation);
 	}
 

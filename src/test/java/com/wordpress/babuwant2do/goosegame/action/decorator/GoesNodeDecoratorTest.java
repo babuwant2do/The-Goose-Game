@@ -24,7 +24,7 @@ public class GoesNodeDecoratorTest {
 	@ParameterizedTest(name = "{index} => SourceNode(pos={2}, user={1}, move=({3},{4}))}")
 	@DisplayName("test Public Methods")
 	@MethodSource("taskTotalUnitProvider")
-	public void testLocation(GoesNodeDecorator node, 
+	public void testLocation(GooseNodeDecorator node, 
 			String exp_userName, Integer exp_SrcPosition, 
 			Integer exp_dice1, Integer exp_dice2, Integer exp_destination,
 			Integer exp_bounds, Integer exp_nextStop, Integer exp_currentPosition){
@@ -98,7 +98,7 @@ public class GoesNodeDecoratorTest {
 		
 		//dest node
 		Location currentLocation = new GooseLocation(dest_position);
-		GoesNodeDecorator destNode = new GoesNodeDecorator(sourceNode, currentLocation);
+		GooseNodeDecorator destNode = new GooseNodeDecorator(sourceNode, currentLocation);
 		
 		return Arguments.of(destNode, 
 				userName, src_position, 
