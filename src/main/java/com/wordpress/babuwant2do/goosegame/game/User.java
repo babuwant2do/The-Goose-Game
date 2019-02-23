@@ -3,7 +3,6 @@ package com.wordpress.babuwant2do.goosegame.game;
 public class User {
 	private String name;
 	
-	public User(){}
 	public User(String name){
 		this.name = name;
 	}
@@ -12,8 +11,19 @@ public class User {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	public boolean equals(Object o) {
+	    if (o == this) {
+	      return true;
+	    }
+	    if (!(o instanceof User)) {
+	      return false;
+	    }
+	    User cc = (User)o;
+	    return cc.name.equals(name);
+	  }
+	 
+	  public int hashCode() {
+	    return this.name.hashCode();
+	  }
 	
 }
