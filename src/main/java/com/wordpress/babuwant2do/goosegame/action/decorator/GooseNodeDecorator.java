@@ -27,24 +27,21 @@ public class GooseNodeDecorator extends NodeDecorator{
 
 	@Override
 	public String getResponds() {
-		return this.getResponds(String.format("%d, %s", this.getPosition(), this.getLocation().getName()));
-	}
-
-	@Override
-	public String getResponds(String destinationAddress) {
-		StringBuilder sb = new StringBuilder(this.getPrevoiusNode().getResponds(destinationAddress)).append(". Pippo moves again and goes to ").append(this.getNextStop());
-//		if(this.getStepsOverFlow() > 0){
-//			sb.append(String.format(". %s bounces! %s returns to %d", this.getUser().getName(), this.getUser().getName(), this.getDestination()));
-//		}
+		String destinationAddress = String.format("%d, %s", this.getPosition(), this.getLocation().getName());
+		StringBuilder sb = new StringBuilder(this.getPrevoiusNode().getResponds(destinationAddress))
+				.append(String.format(". %s moves again and goes to %d", this.getUser().getName(), this.getNextStop()));
+		
 		sb.append(this.getPostfix());
 		return sb.toString();
 	}
 
-//	@Override
-//	public Integer getStepsOverFlow() {
-//		int newPosition = this.getPosition() + this.getMove().getTotalStep();
-//		return newPosition - App.MAX_LOCATION;
-//	}
+	@Override
+	public String getResponds(String destinationAddress) {
+		StringBuilder sb = new StringBuilder(this.getPrevoiusNode().getResponds(String.format("%d, %s", this.getPosition(), this.getLocation().getName()))).
+				append(String.format(". %s moves again and goes to %s", this.getUser().getName(), destinationAddress));
+		sb.append(this.getPostfix());
+		return sb.toString();
+	}
 
 	@Override
 	public Integer getNextStop() {
@@ -55,7 +52,6 @@ public class GooseNodeDecorator extends NodeDecorator{
 			return App.MAX_LOCATION;
 		}
 	}
-
 
 	@Override
 	public Integer calculateNewPssiblePosition() {

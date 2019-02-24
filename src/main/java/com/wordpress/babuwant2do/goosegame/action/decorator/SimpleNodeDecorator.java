@@ -27,14 +27,4 @@ public class SimpleNodeDecorator extends NodeDecorator{
 	public Integer calculateNewPssiblePosition() {
 		return this.getPosition();
 	}
-
-//	@Override
-//	public Integer getStepsOverFlow() {
-//		return this.getPosition() - App.MAX_LOCATION;
-//	}
-	
-//	@Override
-//	public Integer getNextStop() {
-//		return this.getPosition();
-//	}
 }
