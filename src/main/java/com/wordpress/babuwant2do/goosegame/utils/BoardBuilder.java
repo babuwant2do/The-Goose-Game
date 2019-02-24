@@ -5,13 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import com.wordpress.babuwant2do.goosegame.board.BoardLocationI;
+import com.wordpress.babuwant2do.goosegame.board.Location;
 import com.wordpress.babuwant2do.goosegame.exceptions.LocationCreateFailException;
 import com.wordpress.babuwant2do.goosegame.exceptions.LocationInsertFailException;
 
+@ExtendWith(MockitoExtension.class)
 public class BoardBuilder {
 	private Integer winPosition;
-	private Map<Integer, BoardLocationI>  locationMap = new HashMap<>();
+	private Map<Integer, Location>  locationMap = new HashMap<>();
 	private LocationFactory locationFactory;
 	
 	public BoardBuilder(LocationFactory locationFactory) throws LocationCreateFailException{
@@ -40,7 +45,7 @@ public class BoardBuilder {
 	 * @return
 	 * @throws LocationInsertFailException
 	 */
-	public BoardBuilder addLocation(BoardLocationI location) throws LocationInsertFailException{
+	public BoardBuilder addLocation(Location location) throws LocationInsertFailException{
 		if(location != null && location.getPosition() > 0 && location.getPosition() < this.winPosition ){
 			this.locationMap.put(location.getPosition(), location);
 			return this;
@@ -53,9 +58,9 @@ public class BoardBuilder {
 	 * @return
 	 * @throws LocationCreateFailException
 	 */
-	public List<BoardLocationI> build() throws LocationCreateFailException{
+	public List<Location> build() throws LocationCreateFailException{
 			
-			List<BoardLocationI> board = new ArrayList<>(this.winPosition);
+			List<Location> board = new ArrayList<>(this.winPosition);
 			for (int i = 0; i <= this.winPosition; i++) {
 				if(this.locationMap.containsKey(i)){
 					board.add(this.locationMap.get(i));

@@ -17,7 +17,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import com.wordpress.babuwant2do.goosegame.board.BoardLocationI;
+//import com.wordpress.babuwant2do.goosegame.board.BoardLocationI;
 import com.wordpress.babuwant2do.goosegame.board.BridgeLocation;
 import com.wordpress.babuwant2do.goosegame.board.GooseLocation;
 import com.wordpress.babuwant2do.goosegame.board.Location;
@@ -69,7 +69,7 @@ public class BoardBuilderTest {
 	
 	@ParameterizedTest
 	@MethodSource("buildForDefaultWinLocationProvider")
-	public void buildForDefaultWinLocation(List<BoardLocationI> locations, Map<Integer, Class> expectedType, Integer winLocation){
+	public void buildForDefaultWinLocation(List<Location> locations, Map<Integer, Class> expectedType, Integer winLocation){
 		try {
 			BoardBuilder boardBuilder = new BoardBuilder(locationFactory, winLocation);
 			
@@ -81,7 +81,7 @@ public class BoardBuilderTest {
 				}
 			});
 			
-			List<BoardLocationI> board = boardBuilder.build();
+			List<Location> board = boardBuilder.build();
 			
 			for (int i = 0; i < board.size(); i++) {
 				if(expectedType.containsKey(i)){
@@ -219,53 +219,4 @@ public class BoardBuilderTest {
 	} 
 	
 }
-
-
-//	@BeforeEach
-//    void initEach() {
-//		try {
-//			boardBuilder= new BoardBuilder(locationFactory);
-//		} catch (LocationCreateFailException e) {
-//			e.printStackTrace();
-//		} 
-//    }
-//	
-//	@AfterEach
-//	void cleanEach(){
-//		boardBuilder.reset();
-//		boardBuilder = null;
-//	}
-
-/*	
-@Test
-public void build(){
-	try {
-		BoardBuilder boardBuilder = new BoardBuilder(locationFactory);
-		
-		
-		List<BoardLocationI> board = boardBuilder.addLocation(locationFactory.create(LocationType.BRIDGE, 5, 12)) // bridge at 5
-					.addLocation(locationFactory.create(LocationType.GOOSE, 7)) // Goose at 7
-					.build();
-		Assertions.assertTrue(board.get(0) instanceof Location);
-		Assertions.assertTrue(board.get(5) instanceof Location);
-		Assertions.assertTrue(board.get(5) instanceof BridgeLocation);
-		Assertions.assertTrue(board.get(7) instanceof Location);
-					
-		for (int i = 0; i < board.size(); i++) {
-			if(i == 5|| i == 7){
-				
-			}else{
-				assertAll("Checking Default Location",
-					    () -> Assertions.assertTrue(board.get(0) instanceof Location),
-					    () -> Assertions.assertFalse(board.get(0) instanceof BridgeLocation),
-					    () -> Assertions.assertFalse(board.get(0) instanceof GooseLocation)
-					);
-			}
-		}
-		
-	} catch (LocationCreateFailException | LocationInsertFailException e) {
-		e.printStackTrace();
-	}
-}
-*/
 

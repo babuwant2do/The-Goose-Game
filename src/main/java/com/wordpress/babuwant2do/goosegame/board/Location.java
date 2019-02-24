@@ -1,5 +1,6 @@
 package com.wordpress.babuwant2do.goosegame.board;
 
+
 public class Location implements BoardLocationI{
 	private Integer position;
 	private String name;
@@ -38,4 +39,19 @@ public class Location implements BoardLocationI{
 	public void setNextPosition(Integer nextPosition) {
 		this.nextPosition = nextPosition;
 	}
+	
+	public boolean equals(Object o) {
+	    if (o == this) {
+	      return true;
+	    }
+	    if (!(o instanceof Location)) {
+	      return false;
+	    }
+	    Location cc = (Location)o;
+	    return cc.position.equals(this.position);
+	  }
+	 
+	  public int hashCode() {
+	    return this.position.hashCode();
+	  }
 }
