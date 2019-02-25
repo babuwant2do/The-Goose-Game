@@ -46,7 +46,7 @@ To run(start) the game:
 - The Game board can be configurable. Any kind of board can be made using **BoardBuilder** class with different kind , different number and different arrangement of **space**. **Builder pattern** and **Factory pattern** is used to easily configure on demand.
 - A new kind of 'space' can be introduced very easily by extending 'Location' or any subcalss of it. 
 - New type of Action can be introduce easily by Extending 'NodeDecorator'. **Decorator design pattern** is used to adapt with new type of action.
-- Wote few Custom exception to better understand and handle exception.
+- Wrote few Custom exception to better understand and handle exception.
 - User input are validated and users have flexiblity to insert input in different format like:
 ```js
    If user move is 4 ,2 user can type in any of the following form: 
@@ -64,12 +64,28 @@ To run(start) the game:
 ## Additional Features
 ### 1. Help
 Syatem will print all the available **Instruction**.
+```js
+   the user writes: "help"
+   the system responds: < all available command >
+```
 
 ### 2. Reset
 At any point user can reset the board and start a game from the begining. After a player **Wins**, this command is mandatory to start a new game. 
 
+```js
+   the user writes: "reset"
+   the system reset the game
+```
+
+
 ### 2. Exit
 To exit the game and close the application. 
+
+```js
+   the user writes: "exit"
+   game terminate and the system exits.
+```
+
 
 ## Basic Features
 
