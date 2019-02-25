@@ -48,7 +48,14 @@ public class CommandParserTest {
 								((Move)toTest.getCommand()).getDice2(), "expected.getCommand().getDice2()")
 						);				
 			}
-		}else{
+		}else if(expected.getType() == CommandType.MOVE){
+			Assertions.assertAll("getCommand with default MOVE",
+					() -> Assertions.assertNotNull(toTest.getCommand(), ""),
+					() -> Assertions.assertTrue(((Move)toTest.getCommand()).getDice1() > 0 && ((Move)toTest.getCommand()).getDice1() < 7 ,  "expected.getCommand().getDice1() between 1-6"),
+					() -> Assertions.assertTrue(((Move)toTest.getCommand()).getDice2() > 0 && ((Move)toTest.getCommand()).getDice2() < 7 ,  "expected.getCommand().getDice2()  between 1-6")
+					);	
+		}
+		else{
 			Assertions.assertNull(toTest.getCommand());			
 		}
 	}
@@ -57,7 +64,9 @@ public class CommandParserTest {
 		return Stream.of(
 				//Add 
 				Arguments.of("add player Pippo", new GameAction(CommandType.ADD_USER, new User("Pippo")) ),
-				Arguments.of("move     Pippo   4 , 2  ", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2)))
+				Arguments.of("move     Pippo   4 , 2  ", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2))),
+				Arguments.of("move     Pippo  ", new GameAction(CommandType.MOVE, new User("Pippo"))),
+				Arguments.of("move Pippo 4, 2", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2)))
 				);
     }
 	
