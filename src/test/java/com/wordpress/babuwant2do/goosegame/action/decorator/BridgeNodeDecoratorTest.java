@@ -56,7 +56,7 @@ public class BridgeNodeDecoratorTest {
 		assertEquals( exp_nextStop,node.getNextStop(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
 		
 		//Print
-		System.out.println("99999999999999999  "+node.getResponds());
+//		System.out.println("99999999999999999  "+node.getResponds());
 		
 	}
 	

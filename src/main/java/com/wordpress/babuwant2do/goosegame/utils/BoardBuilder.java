@@ -66,7 +66,21 @@ public class BoardBuilder {
 			}
 		return board;
 	}
+	
+	public BoardBuilder setDefaultBoard() throws LocationInsertFailException, LocationCreateFailException{
+		return this.reset()
+			.addLocation(this.locationFactory.create(LocationType.GOOSE, 5))
+			.addLocation(this.locationFactory.create(LocationType.BRIDGE, 6, 12))
+			.addLocation(this.locationFactory.create(LocationType.GOOSE, 9))
+			.addLocation(this.locationFactory.create(LocationType.GOOSE, 14))
+			.addLocation(this.locationFactory.create(LocationType.GOOSE, 18))
+			.addLocation(this.locationFactory.create(LocationType.GOOSE, 23))
+			.addLocation(this.locationFactory.create(LocationType.GOOSE, 27));
+		
+	}
+	
 }
+
 
 //		if(!this.	locationmap.isEmpty()){
 //			List<Integer> locationInOrder = new ArrayList<Integer>(this.locationmap.keySet());

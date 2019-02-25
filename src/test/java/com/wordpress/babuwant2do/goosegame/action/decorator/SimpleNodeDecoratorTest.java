@@ -55,7 +55,7 @@ public class SimpleNodeDecoratorTest {
 		assertEquals( exp_nextStop,node.getNextStop(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_position, exp_userName, exp_dice1, exp_dice2));
 		
 		//Print
-		System.out.println("88888888888888888888  "+node.getResponds());
+//		System.out.println("88888888888888888888  "+node.getResponds());
 		
 	}
 	

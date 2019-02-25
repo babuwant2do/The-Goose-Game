@@ -47,12 +47,34 @@ add player Pippo
 				return new GameAction(CommandType.ADD_USER, new User(cmdToken[2]));
 			}else if(cmdToken[0].equalsIgnoreCase("move")){
 				
+				/**
+				 * ------ length : 3
+				 * move Pippo 4,2 => ['4,2']
+				 * ------ length : 4
+				 * move Pippo 4 ,2 => ['4',',2']
+				 * move Pippo 4, 2 => ['4,' , '2']
+				 * -----------------------------------
+				 * move Pippo 4 , 2 => ['4', ',', '2']
+				 */
+				Move move = null;
 				if(cmdToken.length == 2){
-					return new GameAction(CommandType.MOVE, new User(cmdToken[1]), new Move());
-				}else if( cmdToken.length > 3){
-					int dice1 = cmdToken[2].contains(",")? Integer.parseInt(cmdToken[2].replace(",", "")) : Integer.parseInt(cmdToken[2]);
+					move = new Move();
+				}else if( cmdToken.length == 3){
+					String[] moveTok = cmdToken[2].split(","); 
+					int dice1 =  Integer.parseInt(moveTok[0]);
+					int dice2 = Integer.parseInt(moveTok[1]);
+					move = new Move(dice1, dice2);
+				}else if( cmdToken.length == 4){
+					int dice1 =  Integer.parseInt(cmdToken[2].replace(",", ""));
+					int dice2 = Integer.parseInt(cmdToken[3].replace(",", ""));
+					move = new Move(dice1, dice2);
+				}else if( cmdToken.length > 4){
+					int dice1 = Integer.parseInt(cmdToken[2]);
 					int dice2 = Integer.parseInt(cmdToken[cmdToken.length-1]);
-					return new GameAction(CommandType.MOVE, new User(cmdToken[1]), new Move(dice1, dice2));
+					move = new Move(dice1, dice2);
+				}
+				if(move != null){
+					return new GameAction(CommandType.MOVE, new User(cmdToken[1]), move);
 				}
 				
 			}else{
@@ -78,6 +100,7 @@ add player Pippo
 //	public static void main(String[] args){
 //		CommandParser cp = new CommandParser();
 //		cp.getCommand("move Pippo 4, 2");
+//		cp.getCommand("move Pippo 4,2");
 //		cp.getCommand("move     Pippo   4    ,    2  ");
 ////		cp.getCommand("move     Pippo");
 ////		cp.getCommand("add player Pippo");

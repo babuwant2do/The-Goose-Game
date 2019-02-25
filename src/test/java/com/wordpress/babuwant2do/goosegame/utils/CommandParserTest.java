@@ -66,7 +66,8 @@ public class CommandParserTest {
 				Arguments.of("add player Pippo", new GameAction(CommandType.ADD_USER, new User("Pippo")) ),
 				Arguments.of("move     Pippo   4 , 2  ", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2))),
 				Arguments.of("move     Pippo  ", new GameAction(CommandType.MOVE, new User("Pippo"))),
-				Arguments.of("move Pippo 4, 2", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2)))
+				Arguments.of("move Pippo 4, 2", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2))),
+				Arguments.of("move Pippo 4,2", new GameAction(CommandType.MOVE, new User("Pippo"), new Move(4, 2)))
 				);
     }
 	

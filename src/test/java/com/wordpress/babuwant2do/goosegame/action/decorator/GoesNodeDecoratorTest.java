@@ -57,7 +57,7 @@ public class GoesNodeDecoratorTest {
 		assertEquals( exp_nextStop,node.getNextStop(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_SrcPosition, exp_userName, exp_dice1, exp_dice2));
 		
 		//Print
-		System.out.println("GGGGGGGGGGGGGGGG  "+node.getResponds());
+//		System.out.println("GGGGGGGGGGGGGGGG  "+node.getResponds());
 		
 	}
 	
