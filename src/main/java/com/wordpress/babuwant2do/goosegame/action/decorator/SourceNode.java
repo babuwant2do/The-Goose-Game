@@ -45,28 +45,6 @@ public class SourceNode implements NodeI{
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	
-//	@Override
-//	public Integer getDestination() {
-//		int bounds = this.getStepsOverFlow();
-//		if(bounds <= 0){
-//			return this.getPosition() + this.getMove().getTotalStep();
-//		}else{
-//			return this.getWinLocation() - bounds;
-//			
-//		}
-//	}
-//	
-//	//TODO: make it private and test using Java Reflection
-//	protected Integer getNextStop() {
-//		int bounds = this.getStepsOverFlow();
-//		if(bounds <= 0){
-//			return this.getPosition() + this.getMove().getTotalStep();
-//		}else{
-//			return this.getWinLocation();
-//			
-//		}
-//	}
 
 	@Override
 	public String getResponds(String destinationAddress) {
@@ -92,11 +70,6 @@ public class SourceNode implements NodeI{
 	private Integer getPosition() {
 		return this.getLocation().getPosition();
 	}
-
-//	@Override
-//	public Integer calculateNewPssiblePosition() {
-//		return this.getPosition() + this.getMove().getTotalStep();
-//	}
 
 	@Override
 	public Location getSourceLocation() {

@@ -1,6 +1,10 @@
 package com.wordpress.babuwant2do.goosegame.board;
 
-
+/**
+ * represents Space.
+ * @author mohammedali
+ *
+ */
 public class Location implements BoardLocationI{
 	private Integer position;
 	private String name;

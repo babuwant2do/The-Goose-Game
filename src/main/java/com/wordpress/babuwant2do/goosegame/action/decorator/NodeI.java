@@ -12,7 +12,7 @@ public interface NodeI {
 	public Integer getWinLocation();
 
 	/**
-	 * get final destination after even bounds.. and all action made
+	 * get final destination after even bounces.. and all action made
 	 * @return
 	 */
 	public Integer getDestination();
