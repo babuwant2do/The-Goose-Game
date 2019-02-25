@@ -71,7 +71,7 @@ public class UserInterface {
 					}
 				}
 			} catch (Exception e) {
-				
+				System.err.println("Some Unhandled Exception: "+ e.getMessage());
 			}
 		}
 		
@@ -81,6 +81,7 @@ public class UserInterface {
 	public String printHelp(){
 		return new StringBuilder("Instruction: ")
 				.append("\n------------------------------------")
+				.append("\n To get help type: \"help\"")
 				.append("\n To add new player type: \"add player <userName>\"")
 				.append("\n To move type: \"move <userName> <dice val 1>, <dice val 2>\" or \"move <userName>\"")
 				.append("\n To reset board type: \"reset\"")

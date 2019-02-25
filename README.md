@@ -13,6 +13,8 @@ Before build and run this project, following dependencies must be install and co
 1. [Java 8 or higher][]: Java 8 is used for this project. So, Java 8 or higher is must. Details installation instruction is [here.](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1097257)
 2. [Maven][]: Maven is used to build and manage the project. For install Maven you can follow [Installing Apache Maven](https://maven.apache.org/install.html)
 
+3. This project can be import in the eclipse and run from there.
+
 After installing Java and Maven, following command should be able to execute on the machine to install dependencies, compile, test and run the project.
 
 ### Instruction to Run
@@ -43,8 +45,20 @@ To run(start) the game:
 
 - The Game board can be configurable. Any kind of board can be made using **BoardBuilder** class with different kind , different number and different arrangement of **space**. **Builder pattern** and **Factory pattern** is used to easily configure on demand.
 - A new kind of 'space' can be introduced very easily by extending 'Location' or any subcalss of it. 
-- New type of Action can be introduce easily by Extending 'NodeDecorator'. **Decorator design pattern** is used to adapt with new type of action. 
+- New type of Action can be introduce easily by Extending 'NodeDecorator'. **Decorator design pattern** is used to adapt with new type of action.
+- Wote few Custom exception to better understand and handle exception.
+- User input are validated and users have flexiblity to insert input in different format like:
+```js
+   If user move is 4 ,2 user can type in any of the following form: 
+   "move Pippo 4, 2"
+   "move Pippo 4,2"
+   "move Pippo 4 , 2"
+   "   move    Pippo 4, 2"
+   "   move    Pippo 4   , 2     "
+   and so on... 
+   ```
 - This project is **testable** and write many test case to make sure every thing is works well.
+
 
 
 ## Additional Features

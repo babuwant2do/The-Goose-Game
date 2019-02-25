@@ -81,6 +81,11 @@ public class GameBoard {
 		if(this.boardStatus == BoardStatus.FINISHED){
 			return "need to Restart (type: 'reset'), The winner is: "+  this.winner.getName();
 		}
+		if(this.users.size() < 2){
+			return "Not Enougn User to Start the game, need at least 2 Users.";
+		}
+		
+		//TODO: check user turn.
 		
 		if(this.users.contains(user)){
 			if(this.boardStatus == BoardStatus.INITALIZED) this.boardStatus = BoardStatus.RUNNING;

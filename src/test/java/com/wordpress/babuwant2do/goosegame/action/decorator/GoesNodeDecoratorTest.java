@@ -21,7 +21,7 @@ import com.wordpress.babuwant2do.goosegame.game.User;
 
 public class GoesNodeDecoratorTest {
 	
-	@ParameterizedTest(name = "{index} => SourceNode(pos={2}, user={1}, move=({3},{4}))}")
+	@ParameterizedTest
 	@DisplayName("test Public Methods")
 	@MethodSource("taskTotalUnitProvider")
 	public void testLocation(GooseNodeDecorator node, 

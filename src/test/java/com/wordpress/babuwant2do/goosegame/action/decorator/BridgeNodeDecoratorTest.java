@@ -20,8 +20,7 @@ import com.wordpress.babuwant2do.goosegame.game.User;
 
 public class BridgeNodeDecoratorTest {
 	
-	@ParameterizedTest(name = "{index} => SourceNode(pos={2}, user={1}, move=({3},{4}))}")
-	@DisplayName("test Public Methods")
+	@ParameterizedTest
 	@MethodSource("taskTotalUnitProvider")
 	public void testLocation(BridgeNodeDecorator node, 
 			String exp_userName, Integer exp_SrcPosition, 
