@@ -5,15 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.wordpress.babuwant2do.goosegame.board.BoardLocationI;
 import com.wordpress.babuwant2do.goosegame.board.Location;
 import com.wordpress.babuwant2do.goosegame.exceptions.LocationCreateFailException;
 import com.wordpress.babuwant2do.goosegame.exceptions.LocationInsertFailException;
 
-@ExtendWith(MockitoExtension.class)
 public class BoardBuilder {
 	private Integer winPosition;
 	private Map<Integer, Location>  locationMap = new HashMap<>();

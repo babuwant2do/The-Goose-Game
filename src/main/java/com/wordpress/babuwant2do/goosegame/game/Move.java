@@ -1,6 +1,6 @@
 package com.wordpress.babuwant2do.goosegame.game;
 
-public class Move implements MoveI{
+public class Move implements GameCommandI{
 	private Integer dice1;
 	private Integer dice2;
 	
