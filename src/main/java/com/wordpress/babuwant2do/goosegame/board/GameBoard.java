@@ -62,7 +62,7 @@ public class GameBoard {
 	 */
 	public String moveUser(User user, Move move) throws NodeCreateFailException{
 		if(this.boardStatus == BoardStatus.FINISHED){
-			return "need to Restart, The winner is: "+  this.winner.getName();
+			return "need to Restart (type: 'reset'), The winner is: "+  this.winner.getName();
 		}
 		
 		if(this.users.contains(user)){
@@ -154,12 +154,14 @@ public class GameBoard {
 	/**
 	 * Reset current board, reset user position and begin form Start 
 	 */
-	public void resetBoard(){
+	public String resetBoard(){
 		if(this.boardStatus != BoardStatus.INITALIZED){
 			this.winner = null;
 			this.usersLocation = this.usersLocation.entrySet().stream().collect(Collectors.toMap(e -> e.getKey() , e -> this.boardLocations.get(0))); 
 			this.boardStatus = BoardStatus.INITALIZED;
+			return "board reseted successfully!";
 		}
+		return "board alraedy reseted";
 	}
 	
 	/**
