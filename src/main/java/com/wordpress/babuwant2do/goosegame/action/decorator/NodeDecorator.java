@@ -59,4 +59,9 @@ public abstract class NodeDecorator implements NodeI{
 	public Location getSourceLocation() {
 		return this.sourceNode.getSourceLocation();
 	}
+	
+	@Override
+	public Integer getWinLocation() {
+		return this.sourceNode.getWinLocation();
+	}
 }

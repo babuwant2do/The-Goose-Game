@@ -25,6 +25,7 @@ public class SourceNodeTest {
 	@Test
 	public void testResponse(){
 		
+		Integer MAX_LOCATION_TEST = 63;
 		//Expected value
 		Integer exp_position = 5;
 		Integer exp_dice1 = 2;
@@ -43,7 +44,7 @@ public class SourceNodeTest {
 		Move move = new Move(exp_dice1, exp_dice2);
 		
 		//TO Test
-		SourceNode node = new SourceNode(location, move, user);
+		SourceNode node = new SourceNode(location, move, user, MAX_LOCATION_TEST);
 		assertEquals( exp_response,node.getResponds(), "response test for");
 		
 	}
@@ -107,7 +108,8 @@ public class SourceNodeTest {
 		Move move = new Move(exp_dice1, exp_dice2);
 		
 		//TO Test
-		SourceNode node = new SourceNode(location, move, user);
+		Integer MAX_LOCATION_TEST = 63;
+		SourceNode node = new SourceNode(location, move, user, MAX_LOCATION_TEST);
 		
 		return Arguments.of(node, exp_userName, exp_position, exp_dice1,exp_dice2, exp_destination, exp_bounds, exp_nextStop);
 		

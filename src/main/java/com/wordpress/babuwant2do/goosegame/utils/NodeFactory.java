@@ -21,8 +21,8 @@ public class NodeFactory {
 	 * @param move
 	 * @return
 	 */
-	public NodeI create(Location location, User user, Move move){
-		return new SourceNode(location, move, user);
+	public NodeI create(Location location, User user, Move move, Integer winLocation){
+		return new SourceNode(location, move, user, winLocation);
 	}
 	
 	/**

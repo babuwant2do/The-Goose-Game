@@ -22,11 +22,12 @@ public class NodeTest {
 	
 	@Test
 	public void selfTest(){
-		assertEquals(6, NodeTest.calculateDest(0, 2,4, App.MAX_LOCATION));
-		assertEquals(11, NodeTest.calculateDest(6, 2,3, App.MAX_LOCATION));
-		assertEquals(62, NodeTest.calculateDest(60, 1,1, App.MAX_LOCATION));
-		assertEquals(63, NodeTest.calculateDest(60, 2,1, App.MAX_LOCATION));
-		assertEquals(61, NodeTest.calculateDest(60, 2,3, App.MAX_LOCATION));
+		int MAX_LOCATION= 63;
+		assertEquals(6, NodeTest.calculateDest(0, 2,4, MAX_LOCATION));
+		assertEquals(11, NodeTest.calculateDest(6, 2,3, MAX_LOCATION));
+		assertEquals(62, NodeTest.calculateDest(60, 1,1, MAX_LOCATION));
+		assertEquals(63, NodeTest.calculateDest(60, 2,1, MAX_LOCATION));
+		assertEquals(61, NodeTest.calculateDest(60, 2,3, MAX_LOCATION));
 	}
 
 	@ParameterizedTest
@@ -74,7 +75,8 @@ public class NodeTest {
 		Move move = new Move(dice1Val, dice2Val);
 		
 		//TO Test
-		return new SourceNode(location, move, user);
+		Integer MAX_LOCATION_TEST = 63;
+		return new SourceNode(location, move, user, MAX_LOCATION_TEST);
 		
 	}
 	

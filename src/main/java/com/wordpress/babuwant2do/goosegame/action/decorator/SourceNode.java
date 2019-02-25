@@ -9,11 +9,13 @@ public class SourceNode implements NodeI{
 	private Move move;
 	private User user;
 	private Location location;
+	private final Integer winLocation;
 	
-	public SourceNode(Location location, Move move, User user) {
+	public SourceNode(Location location, Move move, User user, Integer winLocation) {
 		this.location = location;
 		this.move = move;
 		this.user = user;
+		this.winLocation = winLocation;
 	}
 	
 	@Override
@@ -50,7 +52,7 @@ public class SourceNode implements NodeI{
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
-			return App.MAX_LOCATION - bounds;
+			return this.getWinLocation() - bounds;
 			
 		}
 	}
@@ -61,7 +63,7 @@ public class SourceNode implements NodeI{
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
-			return App.MAX_LOCATION;
+			return this.getWinLocation();
 			
 		}
 	}
@@ -99,6 +101,11 @@ public class SourceNode implements NodeI{
 	@Override
 	public Location getSourceLocation() {
 		return this.location;
+	}
+
+	@Override
+	public Integer getWinLocation() {
+		return this.winLocation;
 	}
 	
 }

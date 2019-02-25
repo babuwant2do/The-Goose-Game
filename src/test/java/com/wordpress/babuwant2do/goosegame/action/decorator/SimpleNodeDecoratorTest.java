@@ -83,7 +83,9 @@ public class SimpleNodeDecoratorTest {
 		Move move = new Move(exp_dice1, exp_dice2);
 		
 		//TO Test
-		SourceNode sourceNode = new SourceNode(location, move, user);
+		Integer MAX_LOCATION_TEST = 63;
+		
+		SourceNode sourceNode = new SourceNode(location, move, user, MAX_LOCATION_TEST);
 		
 		//dest node
 		Location currentLocation = new Location(exp_destination);

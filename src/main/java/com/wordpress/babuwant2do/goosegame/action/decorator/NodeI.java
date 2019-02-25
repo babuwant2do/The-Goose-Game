@@ -10,6 +10,7 @@ public interface NodeI {
 	public User getUser();
 	public Location getLocation();
 	public Location getSourceLocation();
+	public Integer getWinLocation();
 
 	/**
 	 * get final destination after even bounds.. and all action made
@@ -32,7 +33,7 @@ public interface NodeI {
 	 * @return - 0 if reach at END(win), -ve if behind the END, +ve if steps overflow.
 	 */
 	public default Integer getStepsOverFlow() {
-		return this.calculateNewPssiblePosition() - App.MAX_LOCATION;
+		return this.calculateNewPssiblePosition() - this.getWinLocation();
 	}
 	
 	/**

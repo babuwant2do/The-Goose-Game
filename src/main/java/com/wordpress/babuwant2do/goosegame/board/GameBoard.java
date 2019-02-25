@@ -19,7 +19,7 @@ public class GameBoard {
 	/**
 	 * board Space
 	 */
-	private List<Location> boardLocations;
+	private final List<Location> boardLocations;
 	/**
 	 * boards current status: RUNNING when first move executed.
 	 */
@@ -37,17 +37,34 @@ public class GameBoard {
 	/**
 	 * 
 	 */
-	private NodeFactory nodeFactory;
+	private final NodeFactory nodeFactory;
+	/**
+	 * 
+	 * @param boardLocations
+	 * @param nodeFactory
+	 */
+	
+	/**
+	 * the win Location: calculated value from  'boardLocations" List
+	 */
+	private Integer winLocation;
 	
 	public GameBoard(List<Location> boardLocations, NodeFactory nodeFactory){
 		this.boardLocations = boardLocations;
 		this.nodeFactory = nodeFactory;
 		this.winner = null;
 		this.users = new ArrayList<>();
-		usersLocation = new HashMap<>();
+		this.usersLocation = new HashMap<>();
+		//win location
+		this.winLocation = this.boardLocations.size()-1;
 		this.boardStatus = BoardStatus.INITALIZED;
 	}
-	
+	/**
+	 * 
+	 * @param boardLocations
+	 * @param nodeFactory
+	 * @param isPrankEnable
+	 */
 	public GameBoard(List<Location> boardLocations, NodeFactory nodeFactory, boolean isPrankEnable){
 		this(boardLocations, nodeFactory);
 		this.isPrankEnable = isPrankEnable;
@@ -67,7 +84,7 @@ public class GameBoard {
 		
 		if(this.users.contains(user)){
 			if(this.boardStatus == BoardStatus.INITALIZED) this.boardStatus = BoardStatus.RUNNING;
-			return this.manageMovement(this.nodeFactory.create(this.usersLocation.get(user), user, move));
+			return this.manageMovement(this.nodeFactory.create(this.usersLocation.get(user), user, move, this.winLocation));
 		}else{
 			return String.format("%s not part of current Game", user.getName());
 		}

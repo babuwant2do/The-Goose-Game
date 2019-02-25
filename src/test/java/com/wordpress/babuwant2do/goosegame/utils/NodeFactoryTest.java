@@ -34,17 +34,17 @@ public class NodeFactoryTest {
 	static GooseLocation gooseLocation;
 	static User user;
 	static Move move;
+	private static Integer MAX_LOCATION_TEST = 63;
 	
 	@BeforeAll
     static void initAll() {
     	NodeFactoryTest.nodeFactory= new NodeFactory(); 
     	
-    	
     	location = new Location(0);
     	gooseLocation = new GooseLocation(1);
     	bridgeLocation = new BridgeLocation(1, 2);
     	
-    	sourceNode = new SourceNode(location, move, user);
+    	sourceNode = new SourceNode(location, move, user, NodeFactoryTest.MAX_LOCATION_TEST);
 
     	user = new User("XXX");
     	move = new Move(2, 3);
@@ -54,8 +54,8 @@ public class NodeFactoryTest {
 	public void typeCheck(){
 		assertNotNull(NodeFactoryTest.nodeFactory, "Location factory created null");
 		try {
-			assertTrue(NodeFactoryTest.nodeFactory.create(location, user, move) instanceof NodeI, "nodeFactory.create(location, user, move) instanceof NodeI");
-			assertTrue(NodeFactoryTest.nodeFactory.create(location, user, move) instanceof SourceNode, "nodeFactory.create(location, user, move) instanceof SourceNode");
+			assertTrue(NodeFactoryTest.nodeFactory.create(location, user, move, MAX_LOCATION_TEST) instanceof NodeI, "nodeFactory.create(location, user, move) instanceof NodeI");
+			assertTrue(NodeFactoryTest.nodeFactory.create(location, user, move, NodeFactoryTest.MAX_LOCATION_TEST) instanceof SourceNode, "nodeFactory.create(location, user, move) instanceof SourceNode");
 			
 			assertTrue(NodeFactoryTest.nodeFactory.create(sourceNode, location) instanceof NodeI, "nodeFactory.create(sourceNode, location) instanceof NodeI");
 			assertTrue(NodeFactoryTest.nodeFactory.create(sourceNode, location) instanceof NodeDecorator, "nodeFactory.create(sourceNode, location) instanceof NodeDecorator");

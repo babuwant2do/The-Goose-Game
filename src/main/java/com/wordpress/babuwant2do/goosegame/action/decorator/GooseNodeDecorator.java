@@ -21,7 +21,7 @@ public class GooseNodeDecorator extends NodeDecorator{
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
-			return App.MAX_LOCATION - bounds;
+			return this.getWinLocation() - bounds;
 		}
 	}
 
@@ -49,7 +49,7 @@ public class GooseNodeDecorator extends NodeDecorator{
 		if(bounds <= 0){
 			return this.getPosition() + this.getMove().getTotalStep();
 		}else{
-			return App.MAX_LOCATION;
+			return this.getWinLocation();
 		}
 	}
 

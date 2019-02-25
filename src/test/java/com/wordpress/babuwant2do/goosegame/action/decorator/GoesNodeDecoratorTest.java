@@ -94,7 +94,8 @@ public class GoesNodeDecoratorTest {
 		Move move = new Move(dice1, dice2);
 		
 		//TO Test
-		SourceNode sourceNode = new SourceNode(location, move, user);
+		Integer MAX_LOCATION_TEST = 63;
+		SourceNode sourceNode = new SourceNode(location, move, user, MAX_LOCATION_TEST);
 		
 		//dest node
 		Location currentLocation = new GooseLocation(dest_position);
