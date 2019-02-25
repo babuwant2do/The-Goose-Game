@@ -95,5 +95,10 @@ public class SourceNode implements NodeI{
 	public Integer calculateNewPssiblePosition() {
 		return this.getPosition() + this.getMove().getTotalStep();
 	}
+
+	@Override
+	public Location getSourceLocation() {
+		return this.location;
+	}
 	
 }

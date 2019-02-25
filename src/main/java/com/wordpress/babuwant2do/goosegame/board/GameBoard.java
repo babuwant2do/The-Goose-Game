@@ -14,6 +14,8 @@ import com.wordpress.babuwant2do.goosegame.game.User;
 import com.wordpress.babuwant2do.goosegame.utils.NodeFactory;
 
 public class GameBoard {
+	private boolean isPrankEnable;
+	
 	/**
 	 * board Space
 	 */
@@ -44,6 +46,11 @@ public class GameBoard {
 		this.users = new ArrayList<>();
 		usersLocation = new HashMap<>();
 		this.boardStatus = BoardStatus.INITALIZED;
+	}
+	
+	public GameBoard(List<Location> boardLocations, NodeFactory nodeFactory, boolean isPrankEnable){
+		this(boardLocations, nodeFactory);
+		this.isPrankEnable = isPrankEnable;
 	}
 	
 	/**
@@ -82,7 +89,32 @@ public class GameBoard {
 			this.winner = sourceNode.getUser();
 			this.boardStatus = BoardStatus.FINISHED;
 		}
+		// handle Prank 
+		if(this.isPrankEnable){
+			return String.format("%s%s", sourceNode.getResponds(), 
+						this.managePrank(sourceNode.getUser(), 
+						sourceNode.getSourceLocation().getPosition(), 
+						sourceNode.getDestination())
+					);
+		}
 		return sourceNode.getResponds();
+	}
+	
+	/**
+	 * to handle Prank
+	 * @param NewUser
+	 * @param sourcePosition
+	 * @param finalPosition
+	 * @return
+	 */
+	private String managePrank(User newUser, Integer sourcePosition, Integer finalPosition){
+		for (Map.Entry<User,Location> entry : this.usersLocation.entrySet()){
+			if(!entry.getKey().equals(newUser) && entry.getValue().getPosition() == finalPosition){
+				this.usersLocation.put( entry.getKey(), this.boardLocations.get(sourcePosition));
+				return String.format(". On %d there is %s, who returns to %d", finalPosition, entry.getKey().getName(), sourcePosition);
+			}
+		}
+		return "";
 	}
 	
 	/**
@@ -119,6 +151,9 @@ public class GameBoard {
 		}
 	}
 	
+	/**
+	 * Reset current board, reset user position and begin form Start 
+	 */
 	public void resetBoard(){
 		if(this.boardStatus != BoardStatus.INITALIZED){
 			this.winner = null;
@@ -127,12 +162,19 @@ public class GameBoard {
 		}
 	}
 	
+	/**
+	 * reset Entire Game, including user and status
+	 */
 	public void resetGame(){
 		this.winner = null;
 		this.users = new ArrayList<>();
 		usersLocation = new HashMap<>();
 		this.boardStatus = BoardStatus.INITALIZED;
 		this.resetBoard();
+	}
+	
+	public boolean isPrankEnable() {
+		return isPrankEnable;
 	}
 	
 }

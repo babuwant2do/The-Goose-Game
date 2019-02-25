@@ -54,4 +54,9 @@ public abstract class NodeDecorator implements NodeI{
 	public Move getMove() {
 		return this.sourceNode.getMove();
 	}
+	
+	@Override
+	public Location getSourceLocation() {
+		return this.sourceNode.getSourceLocation();
+	}
 }

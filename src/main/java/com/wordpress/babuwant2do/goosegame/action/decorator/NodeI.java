@@ -9,6 +9,7 @@ public interface NodeI {
 	public Move getMove();
 	public User getUser();
 	public Location getLocation();
+	public Location getSourceLocation();
 
 	/**
 	 * get final destination after even bounds.. and all action made
