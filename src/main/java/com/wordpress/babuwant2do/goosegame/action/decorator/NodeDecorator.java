@@ -33,11 +33,6 @@ public abstract class NodeDecorator implements NodeI{
 		return this.currentLocation.getPosition();
 	}
 	
-	protected Integer getNextStop() {
-		return this.getDestination();
-	}
-	
-	
 	/**
 	 * get Current Board Location (without any action on this node)
 	 */

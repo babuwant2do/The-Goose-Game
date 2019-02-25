@@ -28,9 +28,10 @@ public class BridgeNodeDecorator extends NodeDecorator{
 		return sb.toString();
 	}
 
+
 	@Override
-	public Integer calculateNewPssiblePosition() {
-		return this.getLocation().getNextPosition();
+	public Integer getNextStop() {
+		return this.getDestination();
 	}
 
 }

@@ -46,27 +46,27 @@ public class SourceNode implements NodeI{
 		this.location = location;
 	}
 	
-	@Override
-	public Integer getDestination() {
-		int bounds = this.getStepsOverFlow();
-		if(bounds <= 0){
-			return this.getPosition() + this.getMove().getTotalStep();
-		}else{
-			return this.getWinLocation() - bounds;
-			
-		}
-	}
-	
-	//TODO: make it private and test using Java Reflection
-	protected Integer getNextStop() {
-		int bounds = this.getStepsOverFlow();
-		if(bounds <= 0){
-			return this.getPosition() + this.getMove().getTotalStep();
-		}else{
-			return this.getWinLocation();
-			
-		}
-	}
+//	@Override
+//	public Integer getDestination() {
+//		int bounds = this.getStepsOverFlow();
+//		if(bounds <= 0){
+//			return this.getPosition() + this.getMove().getTotalStep();
+//		}else{
+//			return this.getWinLocation() - bounds;
+//			
+//		}
+//	}
+//	
+//	//TODO: make it private and test using Java Reflection
+//	protected Integer getNextStop() {
+//		int bounds = this.getStepsOverFlow();
+//		if(bounds <= 0){
+//			return this.getPosition() + this.getMove().getTotalStep();
+//		}else{
+//			return this.getWinLocation();
+//			
+//		}
+//	}
 
 	@Override
 	public String getResponds(String destinationAddress) {
@@ -93,10 +93,10 @@ public class SourceNode implements NodeI{
 		return this.getLocation().getPosition();
 	}
 
-	@Override
-	public Integer calculateNewPssiblePosition() {
-		return this.getPosition() + this.getMove().getTotalStep();
-	}
+//	@Override
+//	public Integer calculateNewPssiblePosition() {
+//		return this.getPosition() + this.getMove().getTotalStep();
+//	}
 
 	@Override
 	public Location getSourceLocation() {
@@ -106,6 +106,24 @@ public class SourceNode implements NodeI{
 	@Override
 	public Integer getWinLocation() {
 		return this.winLocation;
+	}
+
+	@Override
+	public Integer getDestination() {
+		Integer toPositionCalc = this.getPosition() + this.move.getTotalStep();
+		if(toPositionCalc > this.winLocation){
+			return this.winLocation - ((toPositionCalc)% this.winLocation);			
+		}
+		return toPositionCalc;
+	}
+
+	@Override
+	public Integer getNextStop() {
+		Integer toPositionCalc = this.getPosition() + this.move.getTotalStep();
+		if(toPositionCalc > this.winLocation){
+			return this.winLocation;
+		}
+		return toPositionCalc;
 	}
 	
 }

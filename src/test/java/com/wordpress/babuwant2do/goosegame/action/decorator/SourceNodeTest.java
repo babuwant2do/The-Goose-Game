@@ -79,7 +79,6 @@ public class SourceNodeTest {
 			    () -> assertEquals(exp_dice2, node.getMove().getDice2(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getMove().getDice2()", exp_position, exp_userName, exp_dice1, exp_dice2))
 			);
 
-		assertEquals( exp_bounds,node.getStepsOverFlow(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_position, exp_userName, exp_dice1, exp_dice2));
 		assertEquals( exp_nextStop,node.getNextStop(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_position, exp_userName, exp_dice1, exp_dice2));
 		
 	}

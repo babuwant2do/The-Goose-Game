@@ -42,10 +42,6 @@ public class SimpleNodeDecoratorTest {
 		assertNotNull(node.getLocation(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getUser().getName()", exp_position, exp_userName, exp_dice1, exp_dice2));
 		assertEquals( exp_destination,node.getLocation().getPosition(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getLocation().getPosition()", exp_position, exp_userName, exp_dice1, exp_dice2));
 		
-		// bounds
-		assertNotNull(node.getStepsOverFlow(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getUser().getName()", exp_position, exp_userName, exp_dice1, exp_dice2));
-		assertEquals( exp_bounds,node.getStepsOverFlow(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_position, exp_userName, exp_dice1, exp_dice2));
-		
 		//Destination
 		assertNotNull(node.getDestination(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getUser().getName()", exp_position, exp_userName, exp_dice1, exp_dice2));
 		assertEquals( exp_destination,node.getDestination(), String.format("new SourceNode(%d, {%s}, {%d, %d}).getDestination()", exp_position, exp_userName, exp_dice1, exp_dice2));

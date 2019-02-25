@@ -1,6 +1,5 @@
 package com.wordpress.babuwant2do.goosegame.action.decorator;
 
-import com.wordpress.babuwant2do.goosegame.App;
 import com.wordpress.babuwant2do.goosegame.board.Location;
 
 public class GooseNodeDecorator extends NodeDecorator{
@@ -12,17 +11,6 @@ public class GooseNodeDecorator extends NodeDecorator{
 	 */
 	public GooseNodeDecorator(NodeI sourceNode, Location currentLocation) {
 		super(sourceNode, currentLocation);
-	}
-
-
-	@Override
-	public Integer getDestination() {
-		int bounds = this.getStepsOverFlow();
-		if(bounds <= 0){
-			return this.getPosition() + this.getMove().getTotalStep();
-		}else{
-			return this.getWinLocation() - bounds;
-		}
 	}
 
 	@Override
@@ -43,18 +31,23 @@ public class GooseNodeDecorator extends NodeDecorator{
 		return sb.toString();
 	}
 
-	@Override
-	public Integer getNextStop() {
-		int bounds = this.getStepsOverFlow();
-		if(bounds <= 0){
-			return this.getPosition() + this.getMove().getTotalStep();
-		}else{
-			return this.getWinLocation();
-		}
-	}
 
 	@Override
-	public Integer calculateNewPssiblePosition() {
-		return this.getPosition() + this.getMove().getTotalStep();
+	public Integer getDestination() {
+		Integer toPositionCalc = this.getPosition() + this.getMove().getTotalStep();
+		if(toPositionCalc > this.getWinLocation()){
+			return this.getWinLocation() - ((toPositionCalc)% this.getWinLocation());			
+		}
+		return toPositionCalc;
+	}
+
+
+	@Override
+	public Integer getNextStop() {
+		Integer toPositionCalc = this.getPosition() + this.getMove().getTotalStep();
+		if(toPositionCalc > this.getWinLocation()){
+			return this.getWinLocation();
+		}
+		return toPositionCalc;
 	}
 }

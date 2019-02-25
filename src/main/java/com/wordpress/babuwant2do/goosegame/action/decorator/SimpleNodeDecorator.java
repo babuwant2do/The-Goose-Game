@@ -24,7 +24,7 @@ public class SimpleNodeDecorator extends NodeDecorator{
 	}
 
 	@Override
-	public Integer calculateNewPssiblePosition() {
-		return this.getPosition();
+	public Integer getNextStop() {
+		return this.getDestination();
 	}
 }
