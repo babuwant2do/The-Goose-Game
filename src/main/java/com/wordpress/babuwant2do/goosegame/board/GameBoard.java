@@ -79,6 +79,7 @@ public class GameBoard {
 		this.usersLocation.put(sourceNode.getUser(), sourceNode.getLocation());
 		
 		if(dest == this.boardLocations.get(this.boardLocations.size() -1).getPosition()){
+			this.winner = sourceNode.getUser();
 			this.boardStatus = BoardStatus.FINISHED;
 		}
 		return sourceNode.getResponds();
