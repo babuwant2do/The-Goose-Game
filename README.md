@@ -2,7 +2,7 @@
 
 
 # The Goose Game Kata
-##Description
+## Description
 Goose game is a game where two or more players move pieces around a track by rolling a die. The aim of the game is to reach square number sixty-three before any of the other players and avoid obstacles. ([wikipedia](https://en.wikipedia.org/wiki/Game_of_the_Goose))
 
 ## Development
@@ -41,7 +41,7 @@ To run(start) the game:
     mvn exec:java -Dexec.mainClass=com.wordpress.babuwant2do.goosegame.App
 ```
 
-## What is special?
+## Key Points
 
 - The Game board can be configurable. Any kind of board can be made using **BoardBuilder** class with different kind , different number and different arrangement of **space**. **Builder pattern** and **Factory pattern** is used to easily configure on demand.
 - A new kind of 'space' can be introduced very easily by extending 'Location' or any subcalss of it. 
