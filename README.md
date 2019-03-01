@@ -8,31 +8,31 @@ Goose game is a game where two or more players move pieces around a track by rol
 ## Development
 
 ### prerequisites
-Before build and run this project, following dependencies must be install and configure the on your machine:
+Before build and run this project, the following dependencies must be installed and configure them on your machine:
 
-1. [Java 8 or higher][]: Java 8 is used for this project. So, Java 8 or higher is must. Details installation instruction is [here.](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1097257)
-2. [Maven][]: Maven is used to build and manage the project. For install Maven you can follow [Installing Apache Maven](https://maven.apache.org/install.html)
+1. [Java 8 or higher][]: Java 8 is used for this project. So, Java 8 or higher is a must. Details installation instruction is [here.](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1097257)
+2. [Maven][]: Maven is used to building and manages the project. For install Maven, you can follow [Installing Apache Maven](https://maven.apache.org/install.html)
 
-3. This project can be import in the eclipse and run from there.
+3. This project can be imported in the eclipse and run from there.
 
-After installing Java and Maven, following command should be able to execute on the machine to install dependencies, compile, test and run the project.
+After installing Java and Maven, the following command should be able to execute on the machine to install dependencies, compile, test and run the project.
 
 ### Instruction to Run
 
-First download the source code and go to the root folder using command:
+First, download the source code and go to the root folder using the command:
 
 ```js
     cd /<path to download folder>/GooseGame/
 ```
-To install all the dependencied of the project execute: 
+To install all the dependencies of the project execute:
 ```js
     mvn clean install
 ```
-To compile the peoject :
+To compile the project :
 ```js 
     mvn compile
 ```
-To launch application's tests, run:
+To launch the application's tests, run:
 ```js
     mvn test
 ```
@@ -43,11 +43,11 @@ To run(start) the game:
 
 ## Key Points
 
-- The Game board can be configurable. Any kind of board can be made using **BoardBuilder** class with different kind , different number and different arrangement of **space**. **Builder pattern** and **Factory pattern** is used to easily configure on demand.
-- A new kind of 'space' can be introduced very easily by extending 'Location' or any subcalss of it. 
-- New type of Action can be introduce easily by Extending 'NodeDecorator'. **Decorator design pattern** is used to adapt with new type of action.
-- Wrote few Custom exception to better understand and handle exception.
-- User input are validated and users have flexiblity to insert input in different format like:
+- The Game board can be configurable. Any kind of board can be made using BoardBuilder class with a different kind, different number and different arrangement of space. Builder pattern and Factory pattern is used to easily configure on demand.
+- A new kind of 'space' can be introduced very easily by extending 'Location' or any subclass of it. 
+- A new type of Action can be introduced easily by Extending 'NodeDecorator'. **The Decorator design pattern** is used to adapt to a new type of action.
+- Wrote a few Custom exceptions to better understand and handle an exception.
+- User input is validated and users have the flexibility to insert input in different format like:
 ```js
    If user move is 4 ,2 user can type in any of the following form: 
    "move Pippo 4, 2"
@@ -57,7 +57,7 @@ To run(start) the game:
    "   move    Pippo 4   , 2     "
    and so on... 
    ```
-- This project is **testable** and write many test case to make sure every thing is works well.
+- This project is **testable** and writes many test case to make sure everything is working well.
 
 
 
